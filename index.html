@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Project" content="Contact Form">
+    <link rel="stylesheet" href="styles.css">
+    <title>Project</title>
+</head>
+<body>
+    <h1> Contact Form</h1>
+    <p> We will get back to you asap!</p>
+    <form action="https://formspree.io/f/xdornpap" method="POST">
+        <input type="text" name="first" placeholder="First Name" autocomplete="off" required>
+        
+        <input type="text" name="last" placeholder="Last Name" autocomplete="off" required>
+        
+        <input type="email" name="email" placeholder="Email Address" autocomplete="off" required>
+        
+        <input type="number" name="number" placeholder="Phone Number(Optional)" autocomplete="off" >
+        <textarea rows="5" cols="60" name="message" placeholder="Enter text" autocomplete="off" required></textarea>
+
+        <div class="contain">
+            <input type="text" id="capt" readonly="readonly">
+            <div id="refresh"><img src="ref2.png" width="50px" onclick="cap()"></div>
+            <input type="text" id="textinput">
+            <button onclick="validcap()">Check</button>
+        </div>
+
+        <button  type="submit">Send Message</button>
+    </form>
+    <script type="text/javascript">
+        function cap() {
+
+            var alpha=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V'
+                       ,'W','X','Y','Z','1','2','3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i',
+                       'j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+            var a=alpha[Math.floor(Math.random()*62)];
+            var b=alpha[Math.floor(Math.random()*62)];
+            var c=alpha[Math.floor(Math.random()*62)];
+            var d=alpha[Math.floor(Math.random()*62)];
+            var e=alpha[Math.floor(Math.random()*62)];
+            var f=alpha[Math.floor(Math.random()*62)];
+
+            var sum=a + b + c + d + e + f;
+
+            document.getElementById("capt").value=sum;
+        }
+
+        function validcap() {
+            var string1 = document.getElementById('capt').value;
+            var string2 = document.getElementById('textinput').value;
+            if (string1 == string2){
+                alert("Form is validated Succesfully");
+                return true;
+            }
+            else {
+                alert("Please enter a valid captcha");
+                return false;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
